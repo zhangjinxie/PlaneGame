@@ -10,12 +10,12 @@ local function main()
     collectgarbage("setstepmul", 5000)
     local director = cc.Director:getInstance()
     local glView = director:getOpenGLView()
-    local designSize = {320, 568}
-    local smallResSize = {640, 1136}
-    local largeResSize = {750, 1334}
+    local designSize = {width = 320, height = 568}
+    local smallResSize = {width = 640, height = 1136}
+    local largeResSize = {width = 750, height = 1334}
     local frameSize = glView:getFrameSize()
 
-    local searchPaths = cc.FileUtils:getInstance():getSearchParths()
+    local searchPaths = cc.FileUtils:getInstance():getSearchPaths()
     if frameSize.height > smallResSize.height then
         table.insert(searchPaths, "res/large")
         director:setContentScaleFactor(math.min(largeResSize.height / designSize.height, largeResSize.width / designSize.width))
@@ -24,16 +24,16 @@ local function main()
         director:setContentScaleFactor(math.min(smallResSize.height / designSize.height, smallResSize.width / designSize.width))
     end 
 
-    cc.FileUtils:getInstance():setSearchParths(searchPaths)
+    cc.FileUtils:getInstance():setSearchPaths(searchPaths)
     director:getOpenGLView():setDesignResolutionSize(designSize.width, designSize.height, cc.ResolutionPolicy.FIXED_WIDTH)
     director:setDisplayStats(true)
     director:setAnimationInterval(1.0 / 60)
-    local scene = require("GameScene")
-    local gameScene = scene.create()
+    local scene = require("LoadingScene")
+    local LoadingScene = scene.create()
     if cc.Director:getInstance():getRunningScene() then
-    	cc.Director:getInstance():replaceScene(gameScene)
+    	cc.Director:getInstance():replaceScene(LoadingScene)
     else
-    	cc.Director:getInstance():runWithScene(gameScene)
+    	cc.Director:getInstance():runWithScene(LoadingScene)
     end
 end
 
