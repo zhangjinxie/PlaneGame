@@ -1,6 +1,6 @@
 -- cc.FileUtils:getInstance():setPopupNotify(false)
 
-require "config"
+-- require "config"
 require "cocos.init"
 -- local print = release_print
 
