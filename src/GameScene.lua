@@ -1,4 +1,4 @@
-local GameScene = class("GameScene", function() return cc.Scene:create() end)
+local GameScene = class("GameScene", function() return cc.Scene:createWithPhysics() end)
 local userDefault = cc.UserDefault:getInstance()
 function GameScene:create()
 	local scene = GameScene:new()
@@ -32,7 +32,7 @@ function GameScene:createLayer()
 	layer:addChild(map)
 
 	local enemy1 = require("sprite.Enemy"):create(EnemyAtt.plane1)
-	-- layer:addChild(enemy1)
+	layer:addChild(enemy1)
 
 	return layer
 end
