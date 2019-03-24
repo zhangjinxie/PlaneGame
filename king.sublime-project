@@ -5,7 +5,7 @@
 			"name": "cocos3.16",
 			"windows":
 			{
-				"shell_cmd": "${project_path}/simulator/win32/helloworld.exe -workdir ${project_path}"
+				"shell_cmd": "${project_path}/runtime/win32/king.exe -workdir ${project_path}"
 			}
 		}
 	],

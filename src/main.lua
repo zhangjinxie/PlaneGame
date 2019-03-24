@@ -1,9 +1,11 @@
 -- cc.FileUtils:getInstance():setPopupNotify(false)
 cc.FileUtils:getInstance():addSearchPath("/src")
 cc.FileUtils:getInstance():addSearchPath("/res")
+
+math.randomseed(os.time())
 -- require "config"
-require "cocos.init"
 -- local print = release_print
+require "cocos.init"
 
 local function main()
     collectgarbage("collect")

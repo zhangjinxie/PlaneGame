@@ -29,3 +29,14 @@ HomeBtnType = {
 	setting = 2,
 	help = 3
 }
+
+EnemyAtt = {
+	plane1 = {id = 1, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png"},
+	plane2 = {id = 2, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png"},
+	planet1 = {id = 3, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png"},
+	planet2 = {id = 4, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png"},
+}
+
+FightAtt = {
+	hero1 = {id = 1, HP = 10, name = "gameplay.fighter.png"}
+}
