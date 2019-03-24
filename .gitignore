@@ -134,4 +134,4 @@ king.*
 UserDefault.xml
 
 # Ignore files runtime/win32_backup/
-runtime/win32_backup/
+runtime/win32_backup/*
