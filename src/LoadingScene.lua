@@ -37,7 +37,7 @@ function LoadingScene:createLayer()
 		AudioEngine.preloadMusic(gameMusic)
 		AudioEngine.preloadEffect(sound1)
 		AudioEngine.preloadEffect(sound2)
-		local scene = require("GameScene"):create()
+		local scene = require("HomeScene"):create()
 		cc.Director:getInstance():pushScene(scene)
 	end
 	local texture = cc.Director:getInstance():getTextureCache()

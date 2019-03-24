@@ -29,3 +29,17 @@ HomeBtnType = {
 	setting = 2,
 	help = 3
 }
+
+EnemyAtt = {
+	plane1 = {id = 1, life = 5, vt = cc.p(0, -5), rota = 0, name = "gameplay.enemy-1.png"},
+	plane2 = {id = 2, life = 10, vt = cc.p(0, -8), rota = 1, name = "gameplay.enemy.planet.png"},
+	planet1 = {id = 3, life = 12, vt = cc.p(0, -12), rota = 0.5, name = "gameplay.enemy.planet.png"},
+	planet2 = {id = 4, life = 7, vt = cc.p(0, -6), rota = 0, name = "gameplay.enemy-2.png"},
+}
+
+-- EnemyType = {
+-- 	plane1 = 1,
+-- 	plane2 = 2,
+-- 	planet1 = 3,
+-- 	planet2 = 4,
+-- }
