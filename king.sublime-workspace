@@ -3,6 +3,14 @@
 	{
 		"selected_items":
 		[
+			[
+				"lo",
+				"loadingSprite"
+			],
+			[
+				"create",
+				"createLayer"
+			]
 		]
 	},
 	"buffers":
@@ -11,9 +19,37 @@
 			"file": "src/main.lua",
 			"settings":
 			{
-				"buffer_size": 1600,
+				"buffer_size": 1761,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/LoadingScene.lua",
+			"settings":
+			{
+				"buffer_size": 1622,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/GameConstant.lua",
+			"settings":
+			{
+				"buffer_size": 1057,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/GameScene.lua",
+			"settings":
+			{
+				"buffer_size": 2891,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "local GameScene"
 			}
 		}
 	],
@@ -58,6 +94,15 @@
 	],
 	"file_history":
 	[
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/config.json",
+		"/H/projects/PlaneGame/config.json",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/src/main.lua",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/src/SystemConst.lua",
+		"/H/projects/PlaneGame/src/cocos/framework/display.lua",
+		"/H/projects/PlaneGame/res/texture/loading_texture.plist",
+		"/H/projects/PlaneGame/src/cocos/cocos2d/Cocos2dConstants.lua",
+		"/H/projects/PlaneGame/src/main.lua",
+		"/H/projects/PlaneGame/.gitignore",
 		"/H/projects/PlaneGame/src/config.lua",
 		"/H/projects/PlaneGame/src/SystemConst.lua",
 		"/H/Program Files (x86)/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
@@ -70,13 +115,14 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"H:\\projects\\PlaneGame\\src",
 			"H:\\projects\\hellotest\\src",
 			"H:\\projects\\hellotest\\src\\BatchNodeView.lua",
 			"H:\\projects\\hellotest\\src"
@@ -87,6 +133,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"width",
+			"winSize",
+			"display.cx",
+			"aifc",
+			"caf",
+			"_pvr",
+			"pl",
+			"platform",
+			"cc.PlatForm",
+			"gameScene",
+			"frame",
 			"large",
 			"blue",
 			"closebtn",
@@ -108,7 +165,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -117,15 +174,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1600,
+						"buffer_size": 1761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1133,
-								1133
+								0,
+								0
 							]
 						],
 						"settings":
@@ -135,10 +192,96 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/LoadingScene.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								589,
+								589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/GameConstant.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/GameScene.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2891,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "local GameScene",
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -146,11 +289,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 27.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 30.0
 	},
 	"layout":
 	{
@@ -187,7 +330,7 @@
 	"project": "king.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -196,6 +339,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"cons",
+				"cocos\\cocos2d\\Cocos2dConstants.lua"
+			]
 		],
 		"width": 0.0
 	},
