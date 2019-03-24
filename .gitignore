@@ -123,3 +123,15 @@ frameworks/
 
 # Ignore files .db
 *.db
+
+# Ignore files king.
+king.*
+
+# Ignore files .dll
+*.dll
+
+# Ignore files UserDefault.xml
+UserDefault.xml
+
+# Ignore files runtime/win32_backup/
+runtime/win32_backup/
