@@ -1,5 +1,6 @@
 local GameScene = class("GameScene", function() return cc.Scene:createWithPhysics() end)
 local userDefault = cc.UserDefault:getInstance()
+local scheduler = cc.Director:getInstance():getScheduler()
 function GameScene:create()
 	local scene = GameScene:new()
 	scene:getPhysicsWorld():setGravity(cc.p(0,0))
@@ -47,6 +48,17 @@ function GameScene:createLayer()
 
 	local myHero = require("sprite.MyHero"):create(FightAtt.hero1)
 	layer:addChild(myHero)
+
+	local bulletObj = require("sprite.Bullet")
+	local function shootBullet(delta)
+		local bullet = bulletObj:create(BulletAtt.bullet1)
+		bullet:setPosition(cc.p(myHero:getPosition()))
+		layer:addChild(bullet, 10)
+
+		bullet:shootBulletFromMyHero()
+	end
+
+	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.2, false)
 
 
 	local function onTouchBegan(touch, eventType)

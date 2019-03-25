@@ -125,7 +125,7 @@ frameworks/
 *.db
 
 # Ignore files king.
-king.*
+king.sub*
 
 # Ignore files .dll
 *.dll
