@@ -5,7 +5,6 @@ function GameScene:create()
 	local scene = GameScene:new()
 	scene:getPhysicsWorld():setGravity(cc.p(0,0))
 	-- scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
-	scene:addChild(scene:createLayer())
 	return scene
 end
 
@@ -13,6 +12,7 @@ function GameScene:ctor()
 	local function onNodeEvent(eventType)
 		if eventType == "enter" then
 			print("======GameScene======enter")
+			self:addChild(self:createLayer())
 		elseif eventType == "enterTransitionFinish" then
 			print("======GameScene======enterTransitionFinish")
 			if userDefault:getBoolForKey(MUSICKEY, true) then
@@ -58,7 +58,7 @@ function GameScene:createLayer()
 		bullet:shootBulletFromMyHero()
 	end
 
-	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.2, false)
+	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 2, false)
 
 
 	local function onTouchBegan(touch, eventType)
@@ -84,8 +84,34 @@ function GameScene:createLayer()
 	listener:setSwallowTouches(true)
 	listener:registerScriptHandler(onTouchBegan, cc.Handler.EVENT_TOUCH_BEGAN)
 	listener:registerScriptHandler(onTouchMoved, cc.Handler.EVENT_TOUCH_MOVED)
+
+	local function onContact(contact)
+		local spa = contact:getShapeA():getBody():getNode()
+		local spb = contact:getShapeB():getBody():getNode()
+
+		local enemy = spa.nodeType == NodeType.enemy and spa or spb
+		local hero = spa.nodeType == NodeType.hero or spb.nodeType == NodeType.hero
+		local bullet = spa.nodeType == NodeType.bullet or spb.nodeType == NodeType.bullet
+
+		if bullet and not bullet:isVisible() then
+			enemy:spawn()
+		end
+		if hero then
+			print("--------heroheroheroheroherohero")
+			-- self:updateHero()
+		else
+			print("--------bulletbulletbulletbulletbullet")
+			-- self:updateScore()
+		end
+		return false
+	end
+
+	local contactListener = cc.EventListenerPhysicsContact:create()
+	contactListener:registerScriptHandler(onContact, cc.Handler.EVENT_PHYSICS_CONTACT_BEGIN)
+
 	local dispatcher = cc.Director:getInstance():getEventDispatcher()
 	dispatcher:addEventListenerWithSceneGraphPriority(listener, myHero)
+	dispatcher:addEventListenerWithSceneGraphPriority(contactListener, self)
 
 
 	return layer

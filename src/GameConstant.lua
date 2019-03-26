@@ -24,23 +24,41 @@ end
 SOUNDKEY = "soundKey"
 MUSICKEY = "musicKey"
 
+NodeType = {
+	enemy = 100,
+	hero = 200,
+	bullet = 300
+}
+
 HomeBtnType = {
 	start = 1,
 	setting = 2,
 	help = 3
 }
 
+EnemyType = {
+	plane1 = 101,
+	plane2 = 102,
+	planet1 = 103,
+	planet2 = 104,
+}
 EnemyAtt = {
-	plane1 = {id = 101, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png"},
-	plane2 = {id = 102, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png"},
-	planet1 = {id = 103, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png"},
-	planet2 = {id = 104, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png"},
+	plane1 = {id = EnemyType.plane1, nodeType = NodeType.enemy, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png"},
+	plane2 = {id = EnemyType.plane2, nodeType = NodeType.enemy, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png"},
+	planet1 = {id = EnemyType.planet1, nodeType = NodeType.enemy, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png"},
+	planet2 = {id = EnemyType.planet2, nodeType = NodeType.enemy, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png"},
 }
 
+FightType = {
+	hero1 = 201
+}
 FightAtt = {
-	hero1 = {id = 201, HP = 10, name = "gameplay.fighter.png"}
+	hero1 = {id = FightType.hero1, HP = 10, name = "gameplay.fighter.png"}
 }
 
+BulletType = {
+	bullet1 = 301
+}
 BulletAtt = {
-	bullet1 = {id = 301, vt = cc.p(0, 200), name = "gameplay.bullet.png"}
+	bullet1 = {id = BulletType.bullet1, vt = cc.p(0, 200), name = "gameplay.bullet.png"}
 }

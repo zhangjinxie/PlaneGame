@@ -8,15 +8,16 @@ end
 function Enemy:ctor(enemyAtt)
 	local att = enemyAtt
 	self:setTag(att.id)
+	self.nodeType = NodeType.enemy
 	self:setSpriteFrame(att.name)
 	self.HP = att.HP
 	self.velocity = att.vt
 	self.initHP = 0
 
 	local body = cc.PhysicsBody:create()
-	if att.id == 2 or att.id == 3 then
+	if att.id == EnemyType.planet1 or att.id == EnemyType.planet2 then
 		body:addShape(cc.PhysicsShapeCircle:create(self:getContentSize().width/2 - 5))
-	elseif att.id == 1 then
+	elseif att.id == EnemyType.plane1 then
 		local verts ={
 		    cc.p(-2.5,-45.75),
 		    cc.p(-29.5,-27.25),
@@ -26,7 +27,7 @@ function Enemy:ctor(enemyAtt)
 		    cc.p(55,-2.25)
 		}
 		body:addShape(cc.PhysicsShapePolygon:create(verts))
-	elseif att.id == 4 then
+	elseif att.id == EnemyType.plane2 then
 		local verts ={
 		    cc.p(1.25, 32.25),
 		    cc.p(36.75, -4.75),
@@ -37,8 +38,8 @@ function Enemy:ctor(enemyAtt)
 	end
 	self:setPhysicsBody(body)
 	body:setCategoryBitmask(0x01)
-	body:setCollisionBitmask(0x02)
-	body:setContactTestBitmask(0x01)
+	body:setCollisionBitmask(0x00)
+	body:setContactTestBitmask(0x02)
 
 
 	local function update(delta)
