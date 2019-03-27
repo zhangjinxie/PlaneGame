@@ -11,10 +11,12 @@ function Bullet:ctor(att)
 	self.nodeType = NodeType.bullet
 	self.volecity = att.vt
 
+
 	local body = cc.PhysicsBody:createBox(self:getContentSize())
-	body:setCategoryBitmask(0x02)
+	body:setCategoryBitmask(0x2)
 	body:setCollisionBitmask(0x00)
 	body:setContactTestBitmask(0x01)
+	body:setTag(111)
 	self:setPhysicsBody(body)
 end
 
@@ -26,6 +28,7 @@ function Bullet:shootBulletFromMyHero()
 		if y > winSize.height then
 			self:setVisible(false)
 			self:unscheduleUpdate()
+			cc.Director:getInstance():getRunningScene():getPhysicsWorld():removeBody(111)
 		end
 	end
 

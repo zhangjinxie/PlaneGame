@@ -58,7 +58,7 @@ function GameScene:createLayer()
 		bullet:shootBulletFromMyHero()
 	end
 
-	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 2, false)
+	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.2, false)
 
 
 	local function onTouchBegan(touch, eventType)
@@ -90,19 +90,29 @@ function GameScene:createLayer()
 		local spb = contact:getShapeB():getBody():getNode()
 
 		local enemy = spa.nodeType == NodeType.enemy and spa or spb
-		local hero = spa.nodeType == NodeType.hero or spb.nodeType == NodeType.hero
-		local bullet = spa.nodeType == NodeType.bullet or spb.nodeType == NodeType.bullet
 
-		if bullet and not bullet:isVisible() then
-			enemy:spawn()
-		end
-		if hero then
-			print("--------heroheroheroheroherohero")
-			-- self:updateHero()
+		if enemy == spa then
+			if spb.nodeType == NodeType.hero then
+				print("========contact hero")
+				enemy:spawn()
+				-- self:updateHeroStatus()
+			elseif spb:isVisible() then
+				print("========contact bullet")
+				enemy:spawn()
+				-- self:updateScore()
+			end
 		else
-			print("--------bulletbulletbulletbulletbullet")
-			-- self:updateScore()
+			if spa.nodeType == NodeType.hero then
+				print("========contact hero")
+				enemy:spawn()
+				-- self:updateHeroStatus()
+			elseif spa:isVisible() then
+				print("========contact bullet")
+				enemy:spawn()
+				-- self:updateScore()
+			end
 		end
+		
 		return false
 	end
 
