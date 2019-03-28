@@ -30,7 +30,6 @@ function GameScene:createLayer()
 	local map = cc.TMXTiledMap:create("map/red_bg.tmx")
 	layer:addChild(map)
 
-	frameCache:addSpriteFrames(LostRoutes_plist)
 	local top = cc.Sprite:createWithSpriteFrameName("home-top.png")
 	top:setPosition(cc.p(winSize.width/2, winSize.height - top:getContentSize().height/2))
 	layer:addChild(top)

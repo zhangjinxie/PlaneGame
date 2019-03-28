@@ -7,7 +7,7 @@ local lifeScore = 0
 function GameScene:create()
 	local scene = GameScene:new()
 	scene:getPhysicsWorld():setGravity(cc.p(0,0))
-	scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
+	-- scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
 	return scene
 end
 
@@ -36,8 +36,6 @@ function GameScene:createLayer()
 	local layer = cc.Layer:create()
 	local map = cc.TMXTiledMap:create("map/blue_bg.tmx")
 	layer:addChild(map)
-
-
 
 	local enemy1 = require("sprite.Enemy"):create(EnemyAtt.plane1)
 	layer:addChild(enemy1)
@@ -154,10 +152,12 @@ function GameScene:enemyContactHero()
 	self.hero:spawn()
 	self.hero.HP = self.hero.HP - 1
 	if self.hero.HP <= 9 then
-		if cc.FileUtils:getInstance():isFileExist("GameOver") then
+		-- print("========", cc.FileUtils:getInstance():isFileExist("src/GameOver"))
+		-- if cc.FileUtils:getInstance():isFileExist("GameOver") then
 			cc.Director:getInstance():pushScene(require("GameOver"):create())
-		end
+		-- end
 	end
+	self.heroLifeTxt:setString("HP:" .. self.hero.HP)
 end
 
 function GameScene:enemyContactBullet(enemy, bullet)
@@ -166,8 +166,8 @@ function GameScene:enemyContactBullet(enemy, bullet)
 	enemy.hpLoadingBar:setPercent(enemy.initHP / enemy.HP * 100)
 	if enemy.initHP <= 0 then
 		self:createExplosion(enemy)
-		enemy:spawn()
 		self:updateScoreAndLife(enemy)
+		enemy:spawn()
 	end
 end
 
@@ -177,8 +177,15 @@ function GameScene:updateScoreAndLife(enemy)
 	if lifeScore >= 100 then
 		self.hero.HP = self.hero.HP + 1
 		lifeScore = lifeScore % 100
+		self.heroLifeTxt:setString("HP:" .. self.hero.HP)
 	end
 	self.sumScoreTxt:setString(sumScore)
-	self.heroLifeTxt:setString("HP:" .. self.hero.HP)
+
+	local scoreTxt = ccui.Text:create("+" .. enemy.score, "fonts/hanyi.ttf", 30)
+	scoreTxt:setPosition(cc.p(enemy:getPosition()))
+	self:addChild(scoreTxt)
+	local function destroySelf(node) node:removeFromParentAndCleanup() end
+	local seq = cc.Sequence:create(cc.Spawn:create(cc.MoveBy:create(0.5, cc.p(0, 30)), cc.FadeOut:create(1)), cc.CallFunc:create(destroySelf))
+	scoreTxt:runAction(seq)
 end
 return GameScene

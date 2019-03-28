@@ -72,17 +72,11 @@ function Enemy:ctor(enemyAtt)
 end
 
 function Enemy:spawn()
-	if self:getParent() then
-		local scoreTxt = ccui.Text:create("+" .. self.score, "fonts/hanyi.ttf", 30)
-		scoreTxt:setPosition(cc.p(self:getPosition()))
-		self:getParent():addChild(scoreTxt)
-		scoreTxt:runAction(cc.Spawn:create(cc.MoveBy:create(0.5, cc.p(0, 30)), cc.FadeOut:create(1)))
-	end
-
 	local x = math.random(self:getContentSize().width/2, winSize.width - self:getContentSize().width/2)
 	local y = winSize.height + self:getContentSize().height/2
 	self:setPosition(cc.p(x, y))
 	self.initHP = self.HP
 	self.hpLoadingBar:setPercent(100)
 end
+
 return Enemy

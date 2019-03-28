@@ -37,6 +37,7 @@ function LoadingScene:createLayer()
 		AudioEngine.preloadMusic(gameMusic)
 		AudioEngine.preloadEffect(sound1)
 		AudioEngine.preloadEffect(sound2)
+		frameCache:addSpriteFrames(LostRoutes_plist)
 		local scene = require("HomeScene"):create()
 		cc.Director:getInstance():pushScene(scene)
 	end
