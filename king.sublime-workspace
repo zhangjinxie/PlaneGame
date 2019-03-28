@@ -4,8 +4,25 @@
 		"selected_items":
 		[
 			[
+<<<<<<< HEAD
 				"ene",
 				"enemy1"
+=======
+				"po",
+				"poTmp"
+			],
+			[
+				"setPo",
+				"setPosition"
+			],
+			[
+				"get",
+				"getContentSize"
+			],
+			[
+				"lo",
+				"loadingSprite"
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 			],
 			[
 				"layer",
@@ -72,24 +89,51 @@
 			"file": "src/GameConstant.lua",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 1512,
+=======
+				"buffer_size": 1995,
+				"encoding": "UTF-8",
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 				"line_ending": "Windows"
 			}
 		},
 		{
+<<<<<<< HEAD
 			"file": "src/HomeScene.lua",
 			"settings":
 			{
 				"buffer_size": 2887,
+=======
+			"file": "src/GameScene.lua",
+			"settings":
+			{
+				"buffer_size": 3958,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "local GameScene"
+			}
+		},
+		{
+			"file": "src/sprite/Bullet.lua",
+			"settings":
+			{
+				"buffer_size": 927,
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/GameScene.lua",
+			"file": "src/sprite/MyHero.lua",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 2593,
+=======
+				"buffer_size": 1259,
+				"encoding": "UTF-8",
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 				"line_ending": "Windows"
 			}
 		},
@@ -97,9 +141,15 @@
 			"file": "src/sprite/Enemy.lua",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 1795,
 				"line_ending": "Windows",
 				"name": "local"
+=======
+				"buffer_size": 1889,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 			}
 		},
 		{
@@ -107,7 +157,11 @@
 			"settings":
 			{
 				"buffer_size": 15553,
+<<<<<<< HEAD
 				"line_ending": "Windows"
+=======
+				"line_ending": "Unix"
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 			}
 		}
 	],
@@ -148,6 +202,7 @@
 	},
 	"expanded_folders":
 	[
+<<<<<<< HEAD
 		"/E/PlaneGame/src",
 		"/E/PlaneGame/src/sprite"
 	],
@@ -172,6 +227,28 @@
 		"/E/PlaneGame/.project",
 		"/E/PlaneGame/.cocos-project.json",
 		"/E/PlaneGame/king.sublime-project",
+=======
+		"/H/projects/PlaneGame/src",
+		"/H/projects/PlaneGame/src/cocos",
+		"/H/projects/PlaneGame/src/cocos/extension",
+		"/H/projects/PlaneGame/src/sprite"
+	],
+	"file_history":
+	[
+		"/H/projects/PlaneGame/.gitignore",
+		"/H/projects/PlaneGame/king.sublime-project",
+		"/H/projects/PlaneGame/src/cocos/extension/ExtensionConstants.lua",
+		"/H/projects/PlaneGame/src/cocos/cocos2d/Cocos2dConstants.lua",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/src/GamePlayScene.lua",
+		"/H/projects/PlaneGame/src/LoadingScene.lua",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/config.json",
+		"/H/projects/PlaneGame/config.json",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/src/main.lua",
+		"/C/Users/Administrator/Desktop/code/ch23/LostRoutes/src/SystemConst.lua",
+		"/H/projects/PlaneGame/src/cocos/framework/display.lua",
+		"/H/projects/PlaneGame/res/texture/loading_texture.plist",
+		"/H/projects/PlaneGame/src/main.lua",
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 		"/H/projects/PlaneGame/src/config.lua",
 		"/H/projects/PlaneGame/src/SystemConst.lua",
 		"/H/Program Files (x86)/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
@@ -203,6 +280,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+<<<<<<< HEAD
 			"Enemy",
 			"enemy",
 			"Enemy",
@@ -241,6 +319,40 @@
 			"logo",
 			"Ut",
 			"frameSize",
+=======
+			"301",
+			"Hero",
+			"999",
+			"bullet",
+			"size",
+			"Size",
+			"size",
+			"width",
+			"sender",
+			"TOUCH",
+			"CC.TOU",
+			"TYPE",
+			"myHero",
+			"life",
+			"DEBUGDRAW_ALL",
+			"cc.PhysicsWorld.DEBUGDRAW_ALL",
+			"PhysicsWorld",
+			"cc.PhysicsWorld",
+			"physic",
+			"draw",
+			"DEBUGDRAW_ALL",
+			"width",
+			"winSize",
+			"display.cx",
+			"aifc",
+			"caf",
+			"_pvr",
+			"pl",
+			"platform",
+			"cc.PlatForm",
+			"gameScene",
+			"frame",
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 			"large",
 			"blue",
 			"closebtn",
@@ -262,7 +374,11 @@
 	"groups":
 	[
 		{
+<<<<<<< HEAD
 			"selected": 4,
+=======
+			"selected": 2,
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 			"sheets":
 			[
 				{
@@ -278,12 +394,18 @@
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								993,
 								988
+=======
+								468,
+								468
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 							]
 						],
 						"settings":
 						{
+<<<<<<< HEAD
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
@@ -462,15 +584,19 @@
 								"bh_single_quote_close",
 								"bh_single_quote_content"
 							],
+=======
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 							"syntax": "Packages/Lua/Lua.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+<<<<<<< HEAD
+=======
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -479,19 +605,178 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1512,
+						"buffer_size": 1995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1059,
-								1067
+								1888,
+								1891
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 722.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/GameScene.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3958,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								771,
+								771
+							]
+						],
+						"settings":
+						{
+							"auto_name": "local GameScene",
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1368.0,
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+<<<<<<< HEAD
+					"buffer": 1,
+					"file": "src/GameConstant.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1512,
+=======
+					"buffer": 3,
+					"file": "src/sprite/Bullet.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								742,
+								742
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 228.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/sprite/MyHero.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								539,
+								539
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/sprite/Enemy.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1144,
+								1144
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "res/texture/LostRoutes_Texture.plist",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15553,
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+<<<<<<< HEAD
+								1059,
+								1067
+=======
+								9739,
+								9720
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
+							]
+						],
+						"settings":
+						{
+<<<<<<< HEAD
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
@@ -1468,15 +1753,24 @@
 								"bh_single_quote_close",
 								"bh_single_quote_content"
 							],
+=======
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 							"syntax": "Packages/XML/XML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 3577.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
+=======
+						"translation.y": 4766.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 					"type": "text"
 				}
 			]

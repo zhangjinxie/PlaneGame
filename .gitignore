@@ -125,8 +125,12 @@ frameworks/
 *.db
 
 # Ignore files king.
+<<<<<<< HEAD
 king.*
 king.sublime-workspace
+=======
+king.sub*
+>>>>>>> 3069ccbb5d1447bea2db2bf3992e306eb82a67e5
 
 # Ignore files .dll
 *.dll

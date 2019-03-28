@@ -8,6 +8,7 @@ end
 function MyHero:ctor(att)
 	self:setTag(att.id)
 	self:setSpriteFrame(att.name)
+	self.nodeType = NodeType.hero
 	self.HP = 0
 	self.initHP = att.HP
 	local verts = {
@@ -20,8 +21,8 @@ function MyHero:ctor(att)
 
 	local body = cc.PhysicsBody:create()
 	body:addShape(cc.PhysicsShapePolygon:create(verts))
-	body:setCategoryBitmask(0x01)
-	body:setCollisionBitmask(0x02)
+	body:setCategoryBitmask(0x02)
+	body:setCollisionBitmask(0x00)
 	body:setContactTestBitmask(0x01)
 
 	self:setPhysicsBody(body)
