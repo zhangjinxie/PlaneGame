@@ -9,7 +9,7 @@ function MyHero:ctor(att)
 	self:setTag(att.id)
 	self:setSpriteFrame(att.name)
 	self.nodeType = NodeType.hero
-	self.HP = 0
+	self.HP = att.HP
 	self.initHP = att.HP
 	local verts = {
 	    cc.p(-43.5,15.5),
@@ -46,7 +46,7 @@ function MyHero:setPo(x, y)
 end
 
 function MyHero:spawn()
-	self.HP = self.initHP
+	-- self.HP = self.initHP
 	self:setPosition(cc.p(winSize.width/2, self:getContentSize().height/2))
 end
 return MyHero

@@ -1,10 +1,13 @@
 local GameScene = class("GameScene", function() return cc.Scene:createWithPhysics() end)
 local userDefault = cc.UserDefault:getInstance()
 local scheduler = cc.Director:getInstance():getScheduler()
+
+local sumScore = 0
+local lifeScore = 0
 function GameScene:create()
 	local scene = GameScene:new()
 	scene:getPhysicsWorld():setGravity(cc.p(0,0))
-	-- scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
+	scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
 	return scene
 end
 
@@ -34,6 +37,8 @@ function GameScene:createLayer()
 	local map = cc.TMXTiledMap:create("map/blue_bg.tmx")
 	layer:addChild(map)
 
+
+
 	local enemy1 = require("sprite.Enemy"):create(EnemyAtt.plane1)
 	layer:addChild(enemy1)
 
@@ -48,6 +53,17 @@ function GameScene:createLayer()
 
 	local myHero = require("sprite.MyHero"):create(FightAtt.hero1)
 	layer:addChild(myHero)
+
+	self.hero = myHero
+
+	self.heroLifeTxt = ccui.Text:create("HP:" .. self.hero.HP, "fonts/hanyi.ttf", 30)
+	self.heroLifeTxt:setPosition(cc.p(winSize.width, winSize.height - self.heroLifeTxt:getContentSize().height/2))
+	self.heroLifeTxt:setAnchorPoint(1, 0.5)
+	layer:addChild(self.heroLifeTxt)
+
+	self.sumScoreTxt = ccui.Text:create(sumScore, "fonts/hanyi.ttf", 30)
+	self.sumScoreTxt:setPosition(cc.p(winSize.width/2, winSize.height - self.sumScoreTxt:getContentSize().height/2))
+	layer:addChild(self.sumScoreTxt)
 
 	local bulletObj = require("sprite.Bullet")
 	local function shootBullet(delta)
@@ -88,29 +104,25 @@ function GameScene:createLayer()
 	local function onContact(contact)
 		local spa = contact:getShapeA():getBody():getNode()
 		local spb = contact:getShapeB():getBody():getNode()
-
+		local tmpTable = {}
+		table.insert(tmpTable, spa)
+		table.insert(tmpTable, spb)
 		local enemy = spa.nodeType == NodeType.enemy and spa or spb
 
-		if enemy == spa then
-			if spb.nodeType == NodeType.hero then
-				print("========contact hero")
-				enemy:spawn()
-				-- self:updateHeroStatus()
-			elseif spb:isVisible() then
-				print("========contact bullet")
-				enemy:spawn()
-				-- self:updateScore()
+		for i, v in pairs(tmpTable) do
+			if v == enemy then
+				table.remove(tmpTable, i)
+				break
 			end
+		end
+
+		if tmpTable[1].nodeType == NodeType.hero then
+			-- print("=======contact hero")
+			self:enemyContactHero()
+			enemy:spawn()
 		else
-			if spa.nodeType == NodeType.hero then
-				print("========contact hero")
-				enemy:spawn()
-				-- self:updateHeroStatus()
-			elseif spa:isVisible() then
-				print("========contact bullet")
-				enemy:spawn()
-				-- self:updateScore()
-			end
+			-- print("=======contact bullet")
+			self:enemyContactBullet(enemy, tmpTable[1])
 		end
 		
 		return false
@@ -127,4 +139,46 @@ function GameScene:createLayer()
 	return layer
 end
 
+function GameScene:createExplosion(node)
+	if self:getChildByTag(NodeType.explosion) then
+		self:removeChildByTag(NodeType.explosion)
+	end
+	local explosion = cc.ParticleSystemQuad:create("particle/explosion.plist")
+	explosion:setPosition(cc.p(node:getPosition()))
+	explosion:setTag(NodeType.explosion)
+	self:addChild(explosion)
+end
+
+function GameScene:enemyContactHero()
+	self:createExplosion(self.hero)
+	self.hero:spawn()
+	self.hero.HP = self.hero.HP - 1
+	if self.hero.HP <= 9 then
+		if cc.FileUtils:getInstance():isFileExist("GameOver") then
+			cc.Director:getInstance():pushScene(require("GameOver"):create())
+		end
+	end
+end
+
+function GameScene:enemyContactBullet(enemy, bullet)
+	bullet:removeFromWorld()
+	enemy.initHP = enemy.initHP - 1
+	enemy.hpLoadingBar:setPercent(enemy.initHP / enemy.HP * 100)
+	if enemy.initHP <= 0 then
+		self:createExplosion(enemy)
+		enemy:spawn()
+		self:updateScoreAndLife(enemy)
+	end
+end
+
+function GameScene:updateScoreAndLife(enemy)
+	sumScore = sumScore + enemy.score
+	lifeScore = lifeScore + enemy.score
+	if lifeScore >= 100 then
+		self.hero.HP = self.hero.HP + 1
+		lifeScore = lifeScore % 100
+	end
+	self.sumScoreTxt:setString(sumScore)
+	self.heroLifeTxt:setString("HP:" .. self.hero.HP)
+end
 return GameScene

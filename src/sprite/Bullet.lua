@@ -26,12 +26,17 @@ function Bullet:shootBulletFromMyHero()
 		self:setPosition(cc.p(x, y + self.volecity.y * delta))
 		x, y = self:getPosition()
 		if y > winSize.height then
-			self:setVisible(false)
-			self:unscheduleUpdate()
-			cc.Director:getInstance():getRunningScene():getPhysicsWorld():removeBody(111)
+			self:removeFromWorld()
 		end
 	end
 
 	self:scheduleUpdateWithPriorityLua(update, 0)
+end
+
+function Bullet:removeFromWorld()
+	self:setVisible(false)
+	self:unscheduleUpdate()
+	-- cc.Director:getInstance():getRunningScene():getPhysicsWorld():removeBody(111)
+	self:getPhysicsBody():removeFromWorld()
 end
 return Bullet

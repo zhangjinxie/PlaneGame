@@ -27,7 +27,8 @@ MUSICKEY = "musicKey"
 NodeType = {
 	enemy = 100,
 	hero = 200,
-	bullet = 300
+	bullet = 300,
+	explosion = 400
 }
 
 HomeBtnType = {
@@ -43,10 +44,10 @@ EnemyType = {
 	planet2 = 104,
 }
 EnemyAtt = {
-	plane1 = {id = EnemyType.plane1, nodeType = NodeType.enemy, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png"},
-	plane2 = {id = EnemyType.plane2, nodeType = NodeType.enemy, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png"},
-	planet1 = {id = EnemyType.planet1, nodeType = NodeType.enemy, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png"},
-	planet2 = {id = EnemyType.planet2, nodeType = NodeType.enemy, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png"},
+	plane1 = {id = EnemyType.plane1, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png", score = 2},
+	plane2 = {id = EnemyType.plane2, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png", score = 3},
+	planet1 = {id = EnemyType.planet1, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png", score = 4},
+	planet2 = {id = EnemyType.planet2, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png", score = 5},
 }
 
 FightType = {
