@@ -127,6 +127,7 @@ frameworks/
 # Ignore files king.
 king.*
 king.sublime-workspace
+king.sublime-project
 
 # Ignore files .dll
 *.dll
