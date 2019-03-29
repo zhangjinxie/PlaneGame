@@ -1,6 +1,7 @@
 targetPlatForm = cc.Application:getInstance():getTargetPlatform()
 frameCache = cc.SpriteFrameCache:getInstance()
-winSize = cc.Director:getInstance():getWinSize()
+director = cc.Director:getInstance()
+winSize = director:getWinSize()
 if targetPlatForm == cc.PLATFORM_OS_IPHONE or targetPlatForm == cc.PLATFORM_OS_IPAD then
 	loading_texture_plist = "texture/loading_texture_pvr.plist"
 	loading_texture_res = "texture/loading_texture_pvr.gz"

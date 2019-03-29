@@ -11,7 +11,6 @@ function Bullet:ctor(att)
 	self.nodeType = NodeType.bullet
 	self.volecity = att.vt
 
-
 	local body = cc.PhysicsBody:createBox(self:getContentSize())
 	body:setCategoryBitmask(0x2)
 	body:setCollisionBitmask(0x00)
@@ -29,14 +28,22 @@ function Bullet:shootBulletFromMyHero()
 			self:removeFromWorld()
 		end
 	end
-
 	self:scheduleUpdateWithPriorityLua(update, 0)
+
+	local function noNodeEvent(eventType)
+		-- print('=========bullet nodeEvent', eventType)
+		if eventType == "exitTransitionStart" then
+			self:unscheduleUpdate()
+		end
+	end
+	self:registerScriptHandler(noNodeEvent)
 end
 
 function Bullet:removeFromWorld()
 	self:setVisible(false)
 	self:unscheduleUpdate()
-	-- cc.Director:getInstance():getRunningScene():getPhysicsWorld():removeBody(111)
-	self:getPhysicsBody():removeFromWorld()
+	if self:getPhysicsBody() then
+		self:getPhysicsBody():setEnabled(false)
+	end
 end
 return Bullet

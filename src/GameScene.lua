@@ -2,10 +2,11 @@ local GameScene = class("GameScene", function() return cc.Scene:createWithPhysic
 local userDefault = cc.UserDefault:getInstance()
 local scheduler = cc.Director:getInstance():getScheduler()
 
-local sumScore = 0
-local lifeScore = 0
+local sumScore
+local lifeScore
 function GameScene:create()
 	local scene = GameScene:new()
+	scene:setTag(99999)
 	scene:getPhysicsWorld():setGravity(cc.p(0,0))
 	-- scene:getPhysicsWorld():setDebugDrawMask(cc.PhysicsWorld.DEBUGDRAW_ALL)
 	return scene
@@ -14,17 +15,27 @@ end
 function GameScene:ctor()
 	local function onNodeEvent(eventType)
 		if eventType == "enter" then
+			dump(self:getPhysicsWorld():getAllBodies())
 			print("======GameScene======enter")
+			sumScore = 0
+			lifeScore = 0
 			self:addChild(self:createLayer())
 		elseif eventType == "enterTransitionFinish" then
 			print("======GameScene======enterTransitionFinish")
 			if userDefault:getBoolForKey(MUSICKEY, true) then
 				AudioEngine.playMusic(gameMusic, true)
 			end
-		elseif eventType == "exit" then
-			print("======GameScene======exit")
 		elseif eventType == "exitTransitionStart" then
 			print("======GameScene======exitTransitionStart")
+			scheduler:unscheduleScriptEntry(self.scheduleId)
+			local dispatcher = director:getEventDispatcher()
+			dispatcher:removeEventListener(self.touchListener)
+			dispatcher:removeEventListener(self.contactListener)
+			self.layer:removeAllChildren()
+			self.layer:removeFromParentAndCleanup(true)
+			self.layer = nil
+		elseif eventType == "exit" then
+			print("======GameScene======exit")
 		elseif eventType == "cleanup" then
 			print("======GameScene======cleanup")
 		end
@@ -34,6 +45,7 @@ end
 
 function GameScene:createLayer()
 	local layer = cc.Layer:create()
+	self.layer = layer
 	local map = cc.TMXTiledMap:create("map/blue_bg.tmx")
 	layer:addChild(map)
 
@@ -67,7 +79,7 @@ function GameScene:createLayer()
 	local function shootBullet(delta)
 		local bullet = bulletObj:create(BulletAtt.bullet1)
 		bullet:setPosition(cc.p(myHero:getPosition()))
-		layer:addChild(bullet, 10)
+		layer:addChild(bullet)
 
 		bullet:shootBulletFromMyHero()
 	end
@@ -94,10 +106,11 @@ function GameScene:createLayer()
 		node:setPo(x + diff.x, y + diff.y)
 	end
 
-	local listener = cc.EventListenerTouchOneByOne:create()
-	listener:setSwallowTouches(true)
-	listener:registerScriptHandler(onTouchBegan, cc.Handler.EVENT_TOUCH_BEGAN)
-	listener:registerScriptHandler(onTouchMoved, cc.Handler.EVENT_TOUCH_MOVED)
+	local touchListener = cc.EventListenerTouchOneByOne:create()
+	touchListener:setSwallowTouches(true)
+	touchListener:registerScriptHandler(onTouchBegan, cc.Handler.EVENT_TOUCH_BEGAN)
+	touchListener:registerScriptHandler(onTouchMoved, cc.Handler.EVENT_TOUCH_MOVED)
+	self.touchListener = touchListener
 
 	local function onContact(contact)
 		local spa = contact:getShapeA():getBody():getNode()
@@ -115,11 +128,8 @@ function GameScene:createLayer()
 		end
 
 		if tmpTable[1].nodeType == NodeType.hero then
-			-- print("=======contact hero")
-			self:enemyContactHero()
-			enemy:spawn()
+			self:enemyContactHero(enemy)
 		else
-			-- print("=======contact bullet")
 			self:enemyContactBullet(enemy, tmpTable[1])
 		end
 		
@@ -128,11 +138,21 @@ function GameScene:createLayer()
 
 	local contactListener = cc.EventListenerPhysicsContact:create()
 	contactListener:registerScriptHandler(onContact, cc.Handler.EVENT_PHYSICS_CONTACT_BEGIN)
+	self.contactListener = contactListener
 
 	local dispatcher = cc.Director:getInstance():getEventDispatcher()
-	dispatcher:addEventListenerWithSceneGraphPriority(listener, myHero)
+	dispatcher:addEventListenerWithSceneGraphPriority(touchListener, myHero)
 	dispatcher:addEventListenerWithSceneGraphPriority(contactListener, self)
 
+	local function onPause(sender, eventType)
+		print("============, ", eventType)
+	end
+
+	local pause = ccui.Button:create()
+	pause:loadTextures("button.pause.png", "button.pause.png", "", ccui.TextureResType.plistType)
+	pause:setPosition(cc.p(pause:getContentSize().width/2, winSize.height - pause:getContentSize().height/2))
+	pause:addClickEventListener(onPause)
+	layer:addChild(pause)
 
 	return layer
 end
@@ -147,15 +167,19 @@ function GameScene:createExplosion(node)
 	self:addChild(explosion)
 end
 
-function GameScene:enemyContactHero()
+function GameScene:enemyContactHero(enemy)
 	self:createExplosion(self.hero)
+	enemy:spawn()
 	self.hero:spawn()
 	self.hero.HP = self.hero.HP - 1
-	if self.hero.HP <= 9 then
-		-- print("========", cc.FileUtils:getInstance():isFileExist("src/GameOver"))
-		-- if cc.FileUtils:getInstance():isFileExist("GameOver") then
+	if self.hero.HP <= 0 then
+		if cc.FileUtils:getInstance():isFileExist("GameOver.lua") then
+			local record = cc.UserDefault:getInstance():getIntegerForKey("record", 0)
+			if sumScore > record then
+				cc.UserDefault:getInstance():setIntegerForKey("record", sumScore)
+			end
 			cc.Director:getInstance():pushScene(require("GameOver"):create())
-		-- end
+		end
 	end
 	self.heroLifeTxt:setString("HP:" .. self.hero.HP)
 end
