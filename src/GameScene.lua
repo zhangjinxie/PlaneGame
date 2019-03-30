@@ -84,7 +84,7 @@ function GameScene:createLayer()
 		bullet:shootBulletFromMyHero()
 	end
 
-	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.2, false)
+	self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.1, false)
 
 
 	local function onTouchBegan(touch, eventType)
@@ -144,15 +144,50 @@ function GameScene:createLayer()
 	dispatcher:addEventListenerWithSceneGraphPriority(touchListener, myHero)
 	dispatcher:addEventListenerWithSceneGraphPriority(contactListener, self)
 
-	local function onPause(sender, eventType)
-		print("============, ", eventType)
+	local function onPause()
+		if cc.UserDefault:getInstance():getBoolForKey(SOUNDKEY, true) then
+			AudioEngine.playEffect(sound1)
+		end
+		for i, v in pairs(layer:getChildren()) do
+			v:pause()
+		end
+		scheduler:unscheduleScriptEntry(self.scheduleId)
+
+		local function onClick(sender)
+		if cc.UserDefault:getInstance():getBoolForKey(SOUNDKEY, true) then
+			AudioEngine.playEffect(sound1)
+		end
+			if sender:getTag() == GameBtnType.resume then
+				layer:removeChildByTag(GameBtnType.resume)
+				layer:removeChildByTag(GameBtnType.backHome)
+				for i, v in pairs(layer:getChildren()) do
+					v:resume()
+				end
+				self.scheduleId = scheduler:scheduleScriptFunc(shootBullet, 0.1, false)
+			else
+				director:popScene()
+			end
+		end
+		local resumeBtn = ccui.Button:create()
+		resumeBtn:loadTextures("button.resume.png", "button.resume-on.png", "", ccui.TextureResType.plistType)
+		resumeBtn:setPosition(cc.p(winSize.width/2, winSize.height/2 + 30))
+		resumeBtn:setTag(GameBtnType.resume)
+		resumeBtn:addClickEventListener(onClick)
+		layer:addChild(resumeBtn)
+
+		local backHomeBtn = ccui.Button:create()
+		backHomeBtn:loadTextures("button.back.png", "button.back-on.png", "", ccui.TextureResType.plistType)
+		backHomeBtn:setPosition(cc.p(winSize.width/2, winSize.height/2 - 30))
+		backHomeBtn:setTag(GameBtnType.backHome)
+		backHomeBtn:addClickEventListener(onClick)
+		layer:addChild(backHomeBtn)
 	end
 
-	local pause = ccui.Button:create()
-	pause:loadTextures("button.pause.png", "button.pause.png", "", ccui.TextureResType.plistType)
-	pause:setPosition(cc.p(pause:getContentSize().width/2, winSize.height - pause:getContentSize().height/2))
-	pause:addClickEventListener(onPause)
-	layer:addChild(pause)
+	local pauseBtn = ccui.Button:create()
+	pauseBtn:loadTextures("button.pause.png", "button.pause.png", "", ccui.TextureResType.plistType)
+	pauseBtn:setPosition(cc.p(pauseBtn:getContentSize().width/2, winSize.height - pauseBtn:getContentSize().height/2))
+	pauseBtn:addClickEventListener(onPause)
+	layer:addChild(pauseBtn)
 
 	return layer
 end

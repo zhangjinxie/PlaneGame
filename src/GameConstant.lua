@@ -38,6 +38,11 @@ HomeBtnType = {
 	help = 3
 }
 
+GameBtnType = {
+	resume = 1,
+	backHome = 2,
+}
+
 EnemyType = {
 	plane1 = 101,
 	plane2 = 102,
@@ -45,8 +50,8 @@ EnemyType = {
 	planet2 = 104,
 }
 EnemyAtt = {
-	plane1 = {id = EnemyType.plane1, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png", score = 2},
-	plane2 = {id = EnemyType.plane2, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png", score = 3},
+	plane1 = {id = EnemyType.plane1, HP = 7, vt = cc.p(0, -150), rota = 0, name = "gameplay.enemy-2.png", score = 2},
+	plane2 = {id = EnemyType.plane2, HP = 5, vt = cc.p(0, -100), rota = 0, name = "gameplay.enemy-1.png", score = 3},
 	planet1 = {id = EnemyType.planet1, HP = 10, vt = cc.p(0, -120), rota = 1, name = "gameplay.stone1.png", score = 4},
 	planet2 = {id = EnemyType.planet2, HP = 12, vt = cc.p(0, -80), rota = 0.5, name = "gameplay.enemy.planet.png", score = 5},
 }

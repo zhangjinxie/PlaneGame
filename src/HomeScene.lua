@@ -38,7 +38,7 @@ function GameScene:createLayer()
 	bottom:setPosition(cc.p(winSize.width/2, bottom:getContentSize().height/2))
 	layer:addChild(bottom)
 
-	local function onClick(sender, eventType)
+	local function onClick(sender)
 		if cc.UserDefault:getInstance():getBoolForKey(SOUNDKEY, true) then
 			AudioEngine.playEffect(sound1)
 		end
