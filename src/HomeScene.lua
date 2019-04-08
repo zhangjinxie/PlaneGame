@@ -7,6 +7,7 @@ function GameScene:create()
 end
 
 function GameScene:ctor()
+	ccs.ArmatureDataManager:getInstance():addArmatureFileInfo("zg_homefsa.ExportJson")
 	local function onEvent(eventType)
 		if eventType == "enter" then
 			print("====HomeScene=======enter")
@@ -17,6 +18,7 @@ function GameScene:ctor()
 			end
 		elseif eventType == "exit" then
 			print("====HomeScene=======exit")
+			ccs.ArmatureDataManager:getInstance():removeArmatureFileInfo("zg_homefsa.ExportJson")
 		elseif eventType == "exitTransitionStart" then
 			print("====HomeScene=======exitTransitionStart")
 		elseif eventType == "cleanup" then
@@ -27,6 +29,12 @@ function GameScene:ctor()
 end
 function GameScene:createLayer() 
 	local layer = cc.LayerColor:create(cc.BLUE)
+
+	local flower = ccs.Armature:create("zg_homefsa")
+	flower:getAnimation():playWithIndex(0, -1, 1)
+	layer:addChild(flower, 1000, 1000)
+	flower:setPosition(cc.p(winSize.width/2, winSize.height/2))
+
 	local map = cc.TMXTiledMap:create("map/red_bg.tmx")
 	layer:addChild(map)
 
