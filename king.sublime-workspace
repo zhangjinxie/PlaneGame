@@ -5,7 +5,7 @@
 		[
 			[
 				"wins",
-				"winSize.height"
+				"winSize.width"
 			],
 			[
 				"win",
@@ -80,7 +80,8 @@
 			"file": "src/LoadingScene.lua",
 			"settings":
 			{
-				"buffer_size": 1669,
+				"buffer_size": 2009,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -106,7 +107,7 @@
 			"file": "src/HomeScene.lua",
 			"settings":
 			{
-				"buffer_size": 2830,
+				"buffer_size": 3199,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -206,6 +207,7 @@
 	],
 	"file_history":
 	[
+		"/E/PlaneGame/res/zg_homefsa.ExportJson",
 		"/D/kings/skin/kingRbYz/assets/stu/LuaExtend.lua",
 		"/D/kings/base/cocos/client/src/test.lua",
 		"/D/kings/skin/kingRbYz/assets/skin/game/TouchView.lua",
@@ -260,6 +262,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Animation1",
 			"settingBtn",
 			"pause",
 			"paus",
@@ -348,7 +351,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -565,15 +568,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1669,
+						"buffer_size": 2009,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1446,
-								1455
+								2009,
+								2009
 							]
 						],
 						"settings":
@@ -584,12 +587,27 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										2162,
+										2165
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/dot.png",
+										"region.yellowish brackethighlighter.default"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										271,
+										279
+									]
 								},
 								"unmatched":
 								{
@@ -657,27 +675,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										1455,
-										1456
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"region.greenish"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										1445,
-										1446
-									]
 								},
 								"unmatched":
 								{
@@ -745,10 +748,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 1091.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1171,15 +1174,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2830,
+						"buffer_size": 3199,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								996,
-								996
+								1051,
+								1051
 							]
 						],
 						"settings":
@@ -1192,8 +1195,8 @@
 								{
 									"1":
 									[
-										1064,
-										1065
+										1011,
+										1012
 									]
 								},
 								"icon":
@@ -1208,8 +1211,8 @@
 								{
 									"1":
 									[
-										1063,
-										1064
+										1003,
+										1004
 									]
 								},
 								"unmatched":
@@ -1280,24 +1283,24 @@
 								{
 									"1":
 									[
-										995,
-										996
+										3179,
+										3182
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
+										"Packages/BracketHighlighter/icons/dot.png",
+										"region.yellowish brackethighlighter.default"
 									]
 								},
 								"open":
 								{
 									"1":
 									[
-										991,
-										992
+										1017,
+										1025
 									]
 								},
 								"unmatched":
@@ -1366,10 +1369,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1555,7 +1558,7 @@
 						"translation.y": 5100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -2306,61 +2309,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
 							"syntax": "Packages/Lua/Lua.sublime-syntax",
 							"translate_tabs_to_spaces": false

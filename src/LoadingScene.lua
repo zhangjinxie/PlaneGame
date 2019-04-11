@@ -43,6 +43,25 @@ function LoadingScene:createLayer()
 	end
 	local texture = cc.Director:getInstance():getTextureCache()
 	texture:addImageAsync(LostRoutes_res, gotoGameScene)
+
+	--冒泡排序start
+	-- local tmp = {}
+	-- for i = 1, 10 do
+	-- 	tmp[#tmp + 1] = math.random(1, 100)
+	-- end
+
+	-- dump(tmp, "=-=========tmp")
+
+	-- for i = 1, #tmp - 1 do
+	-- 	for j = i + 1, #tmp do
+	-- 		if tmp[i] > tmp[j] then
+	-- 			tmp[i], tmp[j] = tmp[j], tmp[i]
+	-- 		end
+	-- 	end
+	-- end
+	-- dump(tmp, "=======11111111111tmp")
+	--冒泡排序end
+	
 	return layer
 end
 return LoadingScene
